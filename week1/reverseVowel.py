@@ -3,12 +3,11 @@
 
 class ReverseVowel:
     def reverseVowel(self, s):
-        left = 0
-        right = len(s) - 1
+        left, right = 0, len(s) - 1
         vowels = ['a', 'e', 'i', 'o', 'u']
         st = list(s)
 
-        while left != right:
+        while left <= right:
             if st[left] in vowels and st[right] in vowels:
                 st[left], st[right] = st[right], st[left]
                 left += 1

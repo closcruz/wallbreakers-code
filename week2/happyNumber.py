@@ -5,4 +5,24 @@
 
 class HappyNumber:
     def isHappy(self, n):
-        pass
+        nList = list(str(n))
+        tries = []
+        out = True
+        check = True
+
+        while check:
+            total = sum([int(x) ** 2 for x in nList])
+            nList = list(str(total))
+
+            if total == 1:
+                check = False
+            elif total not in tries:
+                tries.append(total)
+            else:
+                out = False
+                check = False
+
+        return out
+
+
+print(HappyNumber().isHappy(19))

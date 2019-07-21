@@ -27,17 +27,24 @@ testL = makeLL(l1)
 
 
 def oddEven(head):
-    eCurr, oCurr = head.next, head
-    eStart = eCurr
-    while eCurr.next != None and oCurr.next != None:
-        oCurr.next = eCurr.next
-        oCurr = eCurr.next
-        eCurr.next = oCurr.next
-        eCurr = oCurr.next
+    o = oHead = Node(0)
+    e = eHead = Node(0)
+    isOdd = True
+    while head:
+        if isOdd:
+            o.next = head
+            o = o.next
+        else:
+            e.next = head
+            e = e.next
 
-    oCurr.next = eStart
+        isOdd = not isOdd
+        head = head.next
 
-    return head
+    e.next = None
+    o.next = eHead
+
+    return oHead
 
 
 oddEven(testL.head)

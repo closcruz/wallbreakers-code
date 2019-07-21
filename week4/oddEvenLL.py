@@ -29,7 +29,7 @@ testL = makeLL(l1)
 def oddEven(head):
     eCurr, oCurr = head.next, head
     eStart = eCurr
-    while eCurr.next != None and oCurr.next != None:
+    while eCurr.next != None and eCurr != None:
         oCurr.next = eCurr.next
         oCurr = eCurr.next
         eCurr.next = oCurr.next
